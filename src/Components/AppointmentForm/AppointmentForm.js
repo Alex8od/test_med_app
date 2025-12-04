@@ -3,16 +3,22 @@ import React, { useState } from "react";
 import "./AppointmentForm.css";
 
 const AppointmentForm = ({ doctorName, speciality }) => {
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [date, setDate] = useState("");
-  const [timeSlot, setTimeSlot] = useState("");
+  const [form, setForm] = useState({
+    name: "",
+    phone: "",
+    date: "",
+    timeSlot: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // einfache Validierung
-    if (!name || !phone || !date || !timeSlot) {
+    if (!form.name || !form.phone || !form.date || !form.timeSlot) {
       alert("Please fill in all fields before booking.");
       return;
     }
@@ -20,70 +26,76 @@ const AppointmentForm = ({ doctorName, speciality }) => {
     console.log("Appointment booked:", {
       doctorName,
       speciality,
-      name,
-      phone,
-      date,
-      timeSlot,
+      ...form,
     });
 
     alert("Appointment booked successfully!");
 
-    // optional Felder leeren
-    setName("");
-    setPhone("");
-    setDate("");
-    setTimeSlot("");
+    setForm({
+      name: "",
+      phone: "",
+      date: "",
+      timeSlot: "",
+    });
   };
 
   return (
-    <div className="appointment-form-container">
-      <form className="appointment-form" onSubmit={handleSubmit}>
-        {/* Name */}
-        <div className="form-group">
-          <label htmlFor="patientName">Name:</label>
-          <input
-            id="patientName"
-            type="text"
-            className="form-control"
-            placeholder="Enter your name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </div>
+    <div className="appt-form-center-wrapper">
+      <div className="appt-form-container">
+        {/* obere Überschrift – optional */}
+        {doctorName && (
+          <>
+            <h3 className="appt-doctor-name">{doctorName}</h3>
+            {speciality && (
+              <p className="appt-doctor-speciality">{speciality}</p>
+            )}
+          </>
+        )}
+  
+        <form className="appt-form" onSubmit={handleSubmit}>
+          {/* Name */}
+          <label>
+            Name:
+            <input
+              type="text"
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              placeholder="Enter your name"
+            />
+          </label>
+  
 
         {/* Phone */}
-        <div className="form-group">
-          <label htmlFor="patientPhone">Phone Number:</label>
+        <label>
+          Phone Number:
           <input
-            id="patientPhone"
             type="tel"
-            className="form-control"
+            name="phone"
+            value={form.phone}
+            onChange={handleChange}
             placeholder="Enter your phone number"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
           />
-        </div>
+        </label>
 
         {/* Date of Appointment */}
-        <div className="form-group">
-          <label htmlFor="appointmentDate">Date of Appointment:</label>
+        <label>
+          Date of Appointment:
           <input
-            id="appointmentDate"
             type="date"
-            className="form-control"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
+            name="date"
+            value={form.date}
+            onChange={handleChange}
           />
-        </div>
+        </label>
 
         {/* Time Slot */}
-        <div className="form-group">
-          <label htmlFor="timeSlot">Book Time Slot:</label>
+        <label>
+          Book Time Slot:
           <select
-            id="timeSlot"
-            className="form-control"
-            value={timeSlot}
-            onChange={(e) => setTimeSlot(e.target.value)}
+            name="timeSlot"
+            value={form.timeSlot}
+            onChange={handleChange}
           >
             <option value="">Select a time slot</option>
             <option value="09:00-10:00">09:00 – 10:00</option>
@@ -92,13 +104,13 @@ const AppointmentForm = ({ doctorName, speciality }) => {
             <option value="14:00-15:00">14:00 – 15:00</option>
             <option value="15:00-16:00">15:00 – 16:00</option>
           </select>
-        </div>
+        </label>
 
-        {/* Submit Button */}
-        <button type="submit" className="book-now-btn">
+        <button type="submit" className="appt-submit-btn">
           Book Now
         </button>
       </form>
+    </div>
     </div>
   );
 };

@@ -1,3 +1,23 @@
+/* Damit der gesamte Inhalt in der Mitte erscheint */
+.popup-content {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important; 
+    width: 100%;
+    background: none !important; /* Hintergrund des popups entfernen */
+    border: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Zentriert den Formular-Container */
+  .appointment-form-center-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+
+
 /* Wrapper der ganzen Karte */
 .appt-form-container {
   width: 320px;
@@ -8,7 +28,11 @@
   font-family: "Poppins", sans-serif;
   margin-top: 16px;
 }
-
+.appt-form-center-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
 .appt-doctor-name {
   text-align: center;
   font-size: 18px;
