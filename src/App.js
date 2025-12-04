@@ -3,7 +3,7 @@ import React from 'react';
 
 // Import components for routing
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import ReviewForm from "./Components/ReviewForm/ReviewForm";
 // Import Notification wrapper
 import Notification from "./Components/Notification/Notification";
 
@@ -28,6 +28,7 @@ function App() {
             <Route path="/" element={<Landing_Page />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Sign_Up />} />
+            <Route path="/reviews" element={<ReviewForm />} />
             <Route path="/booking-consultation" element={<BookingConsultation />} />
             <Route path="/doctor-search" element={<FindDoctorSearch />} />
             <Route path="/doctors" element={<DoctorList />} />

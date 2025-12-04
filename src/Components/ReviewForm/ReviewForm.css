@@ -1,0 +1,38 @@
+/* ReviewForm.css */
+
+.review-container {
+  width: 90%;
+  margin: 40px auto;
+}
+
+.review-title {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.review-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.review-table th,
+.review-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.review-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.review-btn:hover {
+  background-color: #005ec2;
+}
