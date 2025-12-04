@@ -1,81 +1,100 @@
-import React from "react";
+// src/Components/Navbar/Navbar.js
+
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
-// Script-Funktion aus Navbar.html – jetzt korrekt in React eingebunden
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);   // für Burger-Menü
+  const [isLoggedIn, setIsLoggedIn] = useState(false);   // Login-Status
+  const [username, setUsername] = useState("");          // Name vor @
+
+  // Burger-Menü toggeln
   const handleClick = () => {
-    const navLinks = document.querySelector(".nav__links");
-    const navIcon = document.querySelector(".nav__icon i");
-
-    if (!navLinks || !navIcon) return;
-
-    navLinks.classList.toggle("active");
-
-    if (navLinks.classList.contains("active")) {
-      navIcon.classList.remove("fa-bars");
-      navIcon.classList.add("fa-times");
-    } else {
-      navIcon.classList.remove("fa-times");
-      navIcon.classList.add("fa-bars");
-    }
+    setIsMenuOpen(!isMenuOpen);
   };
+
+  // Logout-Logik
+  const handleLogout = () => {
+    sessionStorage.removeItem("auth-token");
+    sessionStorage.removeItem("name");
+    sessionStorage.removeItem("email");
+    sessionStorage.removeItem("phone");
+
+    setIsLoggedIn(false);
+    setUsername("");
+
+    window.location.reload(); // so macht's auch das IBM-Beispiel
+  };
+
+  // Beim Laden: prüfen, ob eingeloggt und Username aus Email bauen
+  useEffect(() => {
+    const storedEmail = sessionStorage.getItem("email");
+
+    if (storedEmail) {
+      setIsLoggedIn(true);
+      const nameFromEmail = storedEmail.split("@")[0];
+      setUsername(nameFromEmail);
+    }
+  }, []);
 
   return (
     <nav>
-      {/* Navigation logo section */}
+      {/* Logo */}
       <div className="nav__logo">
-        <a href="/">
-          StayHealthy
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="26"
-            width="26"
-            viewBox="0 0 1000 1000"
-            style={{ fill: "#3685fb" }}
-          >
-            <title>Doctor With Stethoscope SVG icon</title>
-            <g>
-              <g>
-                <path d="M499.8,10c91.7,0,166,74.3,166,166c0,91.7-74.3,166-166,166c-91.7,0-166-74.3-166-166C333.8,84.3,408.1,10,499.8,10z"></path>
-                <path d="M499.8,522.8c71.2,0,129.1-58.7,129.1-129.1H370.6C370.6,464.1,428.6,522.8,499.8,522.8z"></path>
-                <path d="M693.2,395c-0.7,94.9-70.3,173.7-160.8,188.9v155.9c0,80.3-60.7,150.8-140.8,155.3c-83,4.7-152.7-58.9-157.6-139.7c-22-12.8-35.6-38.5-30.3-66.7c4.7-25.1,25.5-45.6,50.8-49.9c39.7-6.7,74.1,23.7,74.1,62.1c0,23-12.3,43-30.7,54.1c4.7,45.4,45.1,80.4,92.6,76c44.6-4,77.2-44...."></path>
-              </g>
-            </g>
-          </svg>
-        </a>
+        <Link to="/">
+          StayHealthy{" "}
+          <i style={{ color: "#3685fb" }} className="fa fa-user-md"></i>
+        </Link>
         <span>.</span>
       </div>
 
-      {/* hamburger icon */}
+      {/* Burger Icon */}
       <div className="nav__icon" onClick={handleClick}>
-        <i className="fa fa-times fa fa-bars"></i>
+        <i className={isMenuOpen ? "fa fa-times" : "fa fa-bars"}></i>
       </div>
 
-      <li className="link">
-        <a href="/appointments">Appointments</a>
-        </li>
-
-      {/* navigation links */}
-      <ul className="nav__links active">
+      {/* Links */}
+      <ul className={isMenuOpen ? "nav__links active" : "nav__links"}>
         <li className="link">
-          <a href="../Landing_Page/LandingPage.html">Home</a>
+          <Link to="/">Home</Link>
         </li>
 
         <li className="link">
-          <a href="#">Appointments</a>
+          {/* Beispielroute, du kannst sie später anpassen */}
+          <Link to="/appointments">Appointments</Link>
         </li>
 
-        <li className="link">
-              <a href="/signup">
-        <button className="btn1">Sign Up</button> 
-          </a>
-        </li>
+        {isLoggedIn ? (
+          <>
+            {/* Username links vom Logout-Button */}
+            <li className="link">
+              <span style={{ marginRight: "10px", fontWeight: "600" }}>
+              Welcome, {username}
+              </span>
+            </li>
 
-        <li className="link">
-        <a href="/login">
-      <button className="btn1">Login</button>
-          </a>
-        </li>
+            <li className="link">
+              <button className="btn1" onClick={handleLogout}>
+                Logout
+              </button>
+            </li>
+          </>
+        ) : (
+          <>
+            <li className="link">
+              <Link to="/signup">
+                <button className="btn1">Sign Up</button>
+              </Link>
+            </li>
+
+            <li className="link">
+              <Link to="/login">
+                <button className="btn1">Login</button>
+              </Link>
+            </li>
+          </>
+        )}
       </ul>
     </nav>
   );
