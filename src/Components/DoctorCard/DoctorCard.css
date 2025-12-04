@@ -1,0 +1,107 @@
+/* src/Components/DoctorCard/DoctorCard.css */
+
+.doctor-card {
+  width: 260px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 20px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.doctor-card-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.doctor-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.doctor-card-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #eef4ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+  color: #3685fb;
+}
+
+.doctor-card-details-container {
+  text-align: center;
+}
+
+.doctor-name {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 4px 0;
+}
+
+.doctor-speciality {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.doctor-experience {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 8px;
+}
+
+.doctor-rating {
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.rating-label {
+  font-weight: 600;
+}
+
+.stars span {
+  color: #ffb400;
+  margin-left: 2px;
+}
+
+/* Button unten */
+.book-appointment-btn {
+  border: none;
+  outline: none;
+  width: 100%;
+  background-color: #1976d2;
+  color: #fff;
+  border-radius: 0 0 10px 10px;
+  padding: 10px 8px;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  cursor: pointer;
+  text-transform: none;
+}
+
+.book-appointment-btn div:first-child {
+  font-weight: 600;
+}
+
+.book-appointment-btn:hover {
+  background-color: #1258a0;
+}
+.doctor-cards-wrapper {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }

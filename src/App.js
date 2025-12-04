@@ -16,6 +16,8 @@ import Sign_Up from "./Components/Sign_Up/Sign_Up";
 // ganz oben bei den anderen Imports
 import InstantConsultation from "./Components/InstantConsultationBooking/InstantConsultationBooking/InstantConsultation";
 import FindDoctorSearch from "./Components/FindDoctorSearch/FindDoctorSearch";
+import DoctorList from "./Components/DoctorCard/DoctorList";
+
 import "./App.css";
 // Function component for the main App
 function App() {
@@ -34,6 +36,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Sign_Up />} />
             <Route path="/doctor-search" element={<FindDoctorSearch />} />
+            <Route path="/doctors" element={<DoctorList />} />
             <Route path="/instant-consultation" element={<InstantConsultation />}
   />
 </Routes>
