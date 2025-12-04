@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import "./AppointmentForm.css";
 
 const AppointmentForm = ({ doctorName, speciality, onSubmit }) => {
-  // eigene State-Namen, damit es keinen Konflikt mit dem globalen "name" gibt
   const [patientName, setPatientName] = useState("");
   const [patientPhone, setPatientPhone] = useState("");
   const [date, setDate] = useState("");
@@ -26,12 +25,26 @@ const AppointmentForm = ({ doctorName, speciality, onSubmit }) => {
       timeSlot,
     };
 
-    // Daten an DoctorCard zurückgeben (für Booking + Cancel)
+    /* -----------------------------
+       1) LOCAL STORAGE SPEICHERN
+       ----------------------------- */
+
+    // Doctor Info speichern (Notification braucht das)
+    const doctorData = {
+      name: doctorName,
+      speciality,
+    };
+    localStorage.setItem("doctorData", JSON.stringify(doctorData));
+
+    // Termin unter dem Schlüssel des Arztnamens speichern
+    localStorage.setItem(doctorName, JSON.stringify(data));
+
+    /* -----------------------------
+       2) DATEN AN DoctorCard weitergeben
+       ----------------------------- */
     if (onSubmit) {
       onSubmit(data);
     }
-
-    alert("Appointment booked successfully!");
 
     // Felder leeren
     setPatientName("");
@@ -69,7 +82,7 @@ const AppointmentForm = ({ doctorName, speciality, onSubmit }) => {
           />
         </div>
 
-        {/* Date of Appointment */}
+        {/* Date */}
         <div className="form-group">
           <label htmlFor="appointmentDate">Date of Appointment:</label>
           <input
@@ -81,7 +94,7 @@ const AppointmentForm = ({ doctorName, speciality, onSubmit }) => {
           />
         </div>
 
-        {/* Time Slot */}
+        {/* Time */}
         <div className="form-group">
           <label htmlFor="timeSlot">Book Time Slot:</label>
           <select
