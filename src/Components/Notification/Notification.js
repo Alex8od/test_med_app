@@ -9,8 +9,20 @@ const Notification = ({ children }) => {
   const [appointmentData, setAppointmentData] = useState(null);
   const [showNotification, setShowNotification] = useState(false);
 
+  const handleCancelAppointment = () => {
+    // Termin aus localStorage löschen
+    if (doctorData?.name) {
+      localStorage.removeItem(doctorData.name);
+    }
+    // Optional auch doctorData löschen
+    // localStorage.removeItem('doctorData');
+
+    // State zurücksetzen → Notification sofort ausblenden
+    setAppointmentData(null);
+    setShowNotification(false);
+  };
   useEffect(() => {
-    // 👇 Debug-Ausgaben helfen zu sehen, was wirklich im Storage liegt
+    // Debug-Ausgaben helfen zu sehen, was wirklich im Storage liegt
     const storedUsername = sessionStorage.getItem('email');
     const storedDoctorDataRaw = localStorage.getItem('doctorData');
 
@@ -142,6 +154,14 @@ const Notification = ({ children }) => {
                 <strong>Time Slot:</strong> {timeSlot}
               </p>
             )}
+
+<button
+        className="notification-cancel-btn"
+        onClick={handleCancelAppointment}
+      >
+        Cancel Appointment
+        </button>
+
           </div>
         </div>
       )}

@@ -27,4 +27,17 @@
     margin: 4px 0;
     font-size: 0.95rem;
   }
+  .notification-cancel-btn {
+    margin-top: 12px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: none;
+    background-color: #ffffff;
+    color: #1976d2;
+    font-weight: 600;
+    cursor: pointer;
+  }
   
+  .notification-cancel-btn:hover {
+    background-color: #e6f2ff;
+  }
