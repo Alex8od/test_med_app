@@ -105,3 +105,28 @@
     flex-wrap: wrap;
     margin-top: 20px;
   }
+
+  .doctor-card-options-container {
+  margin-top: 16px;
+}
+
+.bookedInfo {
+  margin-top: 12px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.cancel-appointment-btn {
+  margin-top: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #e53935;
+  background-color: #fff;
+  color: #e53935;
+  cursor: pointer;
+}
+
+.cancel-appointment-btn:hover {
+  background-color: #e53935;
+  color: #fff;
+}
