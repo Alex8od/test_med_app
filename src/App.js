@@ -4,6 +4,7 @@ import React from 'react';
 
 // Import components for routing from react-router-dom library
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import BookingConsultation from "./Components/BookingConsultation";
 
 // Import custom Navbar component
 import Navbar from './Components/Navbar/Navbar';
@@ -35,10 +36,10 @@ function App() {
             <Route path="/" element={<Landing_Page />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Sign_Up />} />
+            <Route path="/booking-consultation"nelement={<BookingConsultation />} />
             <Route path="/doctor-search" element={<FindDoctorSearch />} />
             <Route path="/doctors" element={<DoctorList />} />
-            <Route path="/instant-consultation" element={<InstantConsultation />}
-  />
+            <Route path="/instant-consultation" element={<InstantConsultation />} />
 </Routes>
         </BrowserRouter>
     </div>

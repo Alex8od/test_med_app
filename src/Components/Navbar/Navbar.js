@@ -59,7 +59,9 @@ const Navbar = () => {
         <li className="link">
           <Link to="/">Home</Link>
         </li>
-
+<li className="link">
+  <Link to="/booking-consultation">Book Consultation</Link>
+</li>
         <li className="link">
           {/* Beispielroute, du kannst sie später anpassen */}
           <Link to="/appointments">Appointments</Link>
