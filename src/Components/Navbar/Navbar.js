@@ -87,6 +87,9 @@ const Navbar = () => {
                 <button className="btn1">Sign Up</button>
               </Link>
             </li>
+            <li className="link">
+  <Link to="/instant-consultation">Instant Consultation</Link>
+</li>
 
             <li className="link">
               <Link to="/login">

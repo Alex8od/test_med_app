@@ -13,6 +13,8 @@ import Landing_Page from "./Components/Landing_Page/Landing_Page";
 // Login & Sign Up
 import Login from "./Components/Login/Login";
 import Sign_Up from "./Components/Sign_Up/Sign_Up";
+// ganz oben bei den anderen Imports
+import InstantConsultation from "./Components/InstantConsultationBooking/InstantConsultationBooking/InstantConsultation";
 
 import "./App.css";
 // Function component for the main App
@@ -31,7 +33,9 @@ function App() {
             <Route path="/" element={<Landing_Page />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Sign_Up />} />
-          </Routes>
+            <Route path="/instant-consultation" element={<InstantConsultation />}
+  />
+</Routes>
         </BrowserRouter>
     </div>
   );
