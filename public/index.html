@@ -45,4 +45,24 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+    <script>
+    // Ignore errors coming from browser extensions (e.g., MetaMask)
+    window.addEventListener(
+      "error",
+      function (event) {
+        if (
+          event &&
+          event.filename &&
+          event.filename.indexOf("chrome-extension://") === 0
+        ) {
+          event.stopImmediatePropagation();
+          event.preventDefault();
+        }
+      },
+      true
+    );
+  </script>
+</body>
+</html>
+
 </html>

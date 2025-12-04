@@ -51,6 +51,10 @@ const Navbar = () => {
         <i className="fa fa-times fa fa-bars"></i>
       </div>
 
+      <li className="link">
+        <a href="/appointments">Appointments</a>
+        </li>
+
       {/* navigation links */}
       <ul className="nav__links active">
         <li className="link">
@@ -62,14 +66,14 @@ const Navbar = () => {
         </li>
 
         <li className="link">
-          <a href="../Sign_Up/Sign_Up.html">
-            <button className="btn1">Sign Up</button>
+              <a href="/signup">
+        <button className="btn1">Sign Up</button> 
           </a>
         </li>
 
         <li className="link">
-          <a href="../Login/Login.html">
-            <button className="btn1">Login</button>
+        <a href="/login">
+      <button className="btn1">Login</button>
           </a>
         </li>
       </ul>

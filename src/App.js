@@ -1,13 +1,20 @@
 // Import necessary modules from React library
 import React from 'react';
-import Landing_Page from "./Components/Landing_Page/Landing_Page";
+
 
 // Import components for routing from react-router-dom library
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Import custom Navbar component
 import Navbar from './Components/Navbar/Navbar';
+// Landing Page
+import Landing_Page from "./Components/Landing_Page/Landing_Page";
 
+// Login & Sign Up
+import Login from "./Components/Login/Login";
+import Sign_Up from "./Components/Sign_Up/Sign_Up";
+
+import "./App.css";
 // Function component for the main App
 function App() {
 
@@ -21,7 +28,9 @@ function App() {
 
           {/* Set up the Routes for different pages */}
           <Routes>
-          <Route path="/" element={<Landing_Page />} />
+            <Route path="/" element={<Landing_Page />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Sign_Up />} />
           </Routes>
         </BrowserRouter>
     </div>
