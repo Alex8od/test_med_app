@@ -1,0 +1,68 @@
+.docsearch-wrapper {
+  max-width: 600px;
+  margin: 40px auto;
+  font-family: "Poppins", sans-serif;
+}
+
+.docsearch-input-wrapper {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.docsearch-input-wrapper input {
+  flex: 1;
+  border: none;
+  padding: 10px 14px;
+  font-size: 14px;
+  outline: none;
+}
+
+.docsearch-btn {
+  width: 50px;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Liste unter dem Suchfeld */
+
+.docsearch-list {
+  margin-top: 12px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  list-style: none;
+  padding: 0;
+}
+
+.docsearch-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-top: 1px solid #f5f5f5;
+  cursor: pointer;
+}
+
+.docsearch-item:first-child {
+  border-top: none;
+}
+
+.docsearch-icon {
+  margin-right: 12px;
+}
+
+.docsearch-name {
+  flex: 1;
+}
+
+.docsearch-tag {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #888;
+}
