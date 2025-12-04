@@ -70,12 +70,12 @@
 }
 
 .review-form-card {
-  background: #f7f7f7;
-  padding: 20px 24px;
-  border-radius: 12px;
-  max-width: 420px;
+  background: #d3c2e8;
+  padding: 24px 28px;
+  border-radius: 14px;
+  max-width: 440px;
   width: 100%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-top: 24px;
 }
 
 .form-title {
@@ -119,14 +119,13 @@
   color: #f4b400;
 }
 
-/* Submit-Button */
 .submit-btn {
   width: 100%;
-  margin-top: 10px;
+  margin-top: 12px;
   padding: 10px;
   border-radius: 8px;
   border: none;
-  background-color: #007bff;
+  background: #323ec8;
   color: #fff;
   font-weight: 600;
   cursor: pointer;
