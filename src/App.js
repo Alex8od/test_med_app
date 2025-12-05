@@ -15,7 +15,6 @@ import BookingConsultation from "./Components/BookingConsultation";
 import InstantConsultation from "./Components/InstantConsultationBooking/InstantConsultationBooking/InstantConsultation";
 import FindDoctorSearch from "./Components/FindDoctorSearch/FindDoctorSearch";
 import DoctorList from "./Components/DoctorCard/DoctorList";
-
 import "./App.css";
 
 // Function component for the main App
