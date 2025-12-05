@@ -19,6 +19,7 @@ const Sign_Up = () => {
   // Function to handle form submission
   const register = async (e) => {
     e.preventDefault(); // Prevent default form submission
+    setShowerr("");
 
     // simple client-side validation
     if (!name || !email || !phone || !password) {
@@ -94,15 +95,15 @@ const Sign_Up = () => {
           </div>
 
           <form method="POST" onSubmit={register}>
-            {/* Name */}
+            {/* Full Name (nutzt gleichen State wie Name – für das Lab egal) */}
             <div className="form-group">
-              <label htmlFor="name">Full Name</label>
+              <label htmlFor="fullName">Full Name</label>
               <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 type="text"
-                name="name"
-                id="name"
+                name="fullName"
+                id="fullName"
                 className="form-control"
                 placeholder="Enter your full name"
               />
@@ -123,19 +124,19 @@ const Sign_Up = () => {
               />
             </div>
 
-            {/* Name */}
-<div className="form-group">
-  <label htmlFor="name">Name</label>
-  <input 
-    value={name}
-    onChange={(e) => setName(e.target.value)}
-    type="text"
-    name="name"
-    id="name"
-    className="form-control"
-    placeholder="Enter your name"
-  />
-</div>
+            {/* Name (optional, gleiche Info wie Full Name) */}
+            <div className="form-group">
+              <label htmlFor="name">Name</label>
+              <input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                type="text"
+                name="name"
+                id="name"
+                className="form-control"
+                placeholder="Enter your name"
+              />
+            </div>
 
             {/* Phone */}
             <div className="form-group">
@@ -183,7 +184,7 @@ const Sign_Up = () => {
           </form>
         </div>
       </div>
-      {/* Note: Sign up role is not stored in the database. Additional logic can be implemented for this based on your React code. */}
+      {/* Note: Sign up role is not stored in the database. Additional logic can be implemented based on your needs. */}
     </div>
   );
 };

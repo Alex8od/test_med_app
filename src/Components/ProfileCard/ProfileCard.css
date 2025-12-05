@@ -1,0 +1,20 @@
+/* src/Components/ProfileCard/ProfileCard.css */
+
+.profile-card {
+  background: #ffffff;
+  padding: 16px 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  min-width: 200px;
+}
+
+.profile-card-title {
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.profile-card-body p {
+  margin: 4px 0;
+  font-size: 14px;
+}

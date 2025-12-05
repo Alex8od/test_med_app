@@ -1,8 +1,30 @@
 // src/Components/Navbar/Navbar.js
-
+import ProfileCard from "../ProfileCard/ProfileCard";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+
+// sessionStorage Werte lesen
+const storedName = sessionStorage.getItem("name");
+const storedEmail = sessionStorage.getItem("email");
+
+// Falls kein Name gespeichert → aus Email generieren
+function nameFromEmail(email) {
+  if (!email) return "User";
+  
+  const base = email.split("@")[0];   // vor dem @ Teil
+  const parts = base.split(/[._-]/);  // trennt alex.vainagii
+
+  // Erster Buchstabe groß machen
+  const formatted = parts
+    .map(p => p.charAt(0).toUpperCase() + p.slice(1))
+    .join(" ");
+
+  return formatted;
+}
+
+const username = storedName || nameFromEmail(storedEmail) || "User";
+
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);   // für Burger-Menü
